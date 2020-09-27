@@ -21,6 +21,7 @@ function runCode(code) {
         code: encodeURIComponent(code.replace(/ /g, "`"))
     }, function (res) {
         res = res.replace('\x00', '<font color="gray"><0x00></font>');
+        res = res.replace(/\n/g, "<br />");
         $("#result").html(res);
     });
 }
