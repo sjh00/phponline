@@ -20,7 +20,8 @@ function runCode(code) {
         //如果不将空格替换为`将会出现一些错误
         code: encodeURIComponent(code.replace(/ /g, "`"))
     }, function (res) {
-        $("#result").text(res);
+        res = res.replace('\x00', '<font color="gray"><0x00></font>');
+        $("#result").html(res);
     });
 }
 //清除编辑器中的代码
