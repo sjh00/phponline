@@ -27,5 +27,8 @@ if (isset($_POST['code'])) {
     //运行php代码
     $result = eval($code);
     //将经过URLCode编码的代码写入cookie，“/phponline/client”为前端代码所在的相对网站根目录的地址
-    //setcookie('code', $originalCode, time() + 3600 * 24 * 7, '/phponline/client');
+    try {
+        setcookie('code', $originalCode, time() + 3600 * 24 * 7, '/phponline/client');
+    }
+    catch (Exception $e) { }
 }
